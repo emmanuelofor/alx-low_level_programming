@@ -1,10 +1,8 @@
 #include <stdio.h>
 /**
- * main - print out sizes of data types in c
- * code by Emmanuel Ofori
+ * main - Entry
  * Return: Always 0
 */
-
 int main(void)
 {
 	printf("Size of a char: %i byte(s)\n", sizeof(char));
