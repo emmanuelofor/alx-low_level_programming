@@ -20,4 +20,4 @@ void array_iterator(int *array, size_t size, void (*action)(int));
 int int_index(int *array, int size, int (*cmp)(int));
 /*prototype  function that searches for an integer.*/
 
-#endif /* HOLBERTON_H */
+#endif /* MAIN_H */
