@@ -1,42 +1,37 @@
 #!/usr/bin/python3
-"""
-This module is designed to compute the perimeter of an island presented in a grid.
-"""
+"""This module is responsible for determining the perimeter of an island within a grid."""
+
 
 def num_water_neighbors(grid, i, j):
-    """
-    This function calculates the number of neighboring cells that are water in a given grid.
-    """
-    
-    count = 0
+    """Calculates and returns the quantity of water-adjacent cells for a given cell in the grid."""
 
-    # If the cell is in the first row or the cell above is water, increase the count
+    num = 0
+
+    # Increment count if the cell is at the top edge or its upper neighbor is water
     if i <= 0 or not grid[i - 1][j]:
-        count += 1
-    # If the cell is in the first column or the cell to the left is water, increase the count
+        num += 1
+    # Increment count if the cell is at the left edge or its left neighbor is water
     if j <= 0 or not grid[i][j - 1]:
-        count += 1
-    # If the cell is in the last column or the cell to the right is water, increase the count
+        num += 1
+    # Increment count if the cell is at the right edge or its right neighbor is water
     if j >= len(grid[i]) - 1 or not grid[i][j + 1]:
-        count += 1
-    # If the cell is in the last row or the cell below is water, increase the count
+        num += 1
+    # Increment count if the cell is at the bottom edge or its lower neighbor is water
     if i >= len(grid) - 1 or not grid[i + 1][j]:
-        count += 1
+        num += 1
 
-    return count
+    return num
 
 
 def island_perimeter(grid):
-    """
-    This function calculates the total perimeter of the island represented in the grid.
-    """
+    """Calculates and returns the total perimeter of the island represented in the grid."""
 
-    total_perimeter = 0
+    perimeter = 0
+    # Loop through each cell in the grid
     for i in range(len(grid)):
         for j in range(len(grid[i])):
             # If the cell is part of the island, add the number of its water neighbors to the total perimeter
             if grid[i][j]:
-                total_perimeter += num_water_neighbors(grid, i, j)
+                perimeter += num_water_neighbors(grid, i, j)
 
-    return total_perimeter
-
+    return perimeter
